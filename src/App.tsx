@@ -1,16 +1,14 @@
-import { useState } from 'react';
 import './App.css';
+import Wrapper from './components/wrapper';
+import { RootStoreContext } from './root-store.context';
+import RootStore from './store/root-store';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>+</button>
-        <div>{count}</div>
-        <button onClick={() => setCount((count) => count - 1)}>-</button>
-      </div>
+      <RootStoreContext.Provider value={new RootStore()}>
+        <Wrapper />
+      </RootStoreContext.Provider>
     </>
   );
 }
